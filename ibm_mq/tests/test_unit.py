@@ -4,7 +4,6 @@
 from datadog_checks.ibm_mq import IbmMqCheck
 
 
-@pytest.mark.integration
 def test_check(aggregator, instance):
     check = IbmMqCheck('ibm_mq', {}, {})
     check.check(instance)
