@@ -84,3 +84,5 @@ class IbmMqCheck(AgentCheck):
                 self.log.info("{} {} tags={}".format(mname, m, tags))
             except pymqi.Error as e:
                 self.log.info("Error getting queue stats: {}".format(e))
+            except Exception as e:
+                self.log.info("Error! {} {} {}".format(mname, value, e))
