@@ -60,13 +60,13 @@ class IbmMqCheck(AgentCheck):
                 queue = pymqi.Queue(queue_manager, queue_name)
                 self.queue_stats(queue, queue_tags)
             except Exception as e:
-                self.log.warning('Cannot connect to queue {}: {}'.format(queue_name, e))
+                self.warning('Cannot connect to queue {}: {}'.format(queue_name, e))
 
     def queue_manager_stats(self, queue_manager, tags):
         for mname, value in iteritems(metrics.QUEUE_MANAGER_METRICS):
             try:
                 arg = 'queue_manager.inquire(pymqi.CMQC.{})'.format(value)
-                m = eval(arg)
+                m = literal_eval(arg)
 
                 mname = '{}.queue_manager.{}'.format(self.METRIC_PREFIX, mname)
                 self.gauge(mname, m, tags=tags)
@@ -78,7 +78,7 @@ class IbmMqCheck(AgentCheck):
         for mname, value in iteritems(metrics.QUEUE_METRICS):
             try:
                 arg = 'queue.inquire(pymqi.CMQC.{})'.format(value)
-                m = eval(arg)
+                m = literal_eval(arg)
                 mname = '{}.queue.{}'.format(self.METRIC_PREFIX, mname)
                 self.gauge(mname, m, tags=tags)
                 self.log.info("{} {} tags={}".format(mname, m, tags))

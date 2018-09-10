@@ -15,22 +15,22 @@ QUEUE_METRICS = {
     'type': 'MQIA_Q_TYPE',
     'depth_max': 'MQIA_MAX_Q_DEPTH',
     'backout_threshold': 'MQIA_BACKOUT_THRESHOLD',
-	'depth_high_event': 'MQIA_Q_DEPTH_HIGH_EVENT',
-	'depth_low_event': 'MQIA_Q_DEPTH_LOW_EVENT',
-	'trigger_message_priority': 'MQIA_TRIGGER_MSG_PRIORITY',
-	'depth_current': 'MQIA_CURRENT_Q_DEPTH',
-	'depth_max_event': 'MQIA_Q_DEPTH_MAX_EVENT',
-	'open_input_count': 'MQIA_OPEN_INPUT_COUNT',
-	'persistence': 'MQIA_DEF_PERSISTENCE',
-	'trigger_depth': 'MQIA_TRIGGER_DEPTH',
-	'max_message_length': 'MQIA_MAX_MSG_LENGTH',
-	'depth_high_limit': 'MQIA_Q_DEPTH_HIGH_LIMIT',
-	'priority': 'MQIA_DEF_PRIORITY',
-	'input_open_option': 'MQIA_DEF_INPUT_OPEN_OPTION',
-	'message_delivery_sequence': 'MQIA_MSG_DELIVERY_SEQUENCE',
-	'retention_interval': 'MQIA_RETENTION_INTERVAL',
-	'open_output_count': 'MQIA_OPEN_OUTPUT_COUNT',
-	'trigger_type': 'MQIA_TRIGGER_TYPE',
+    'depth_high_event': 'MQIA_Q_DEPTH_HIGH_EVENT',
+    'depth_low_event': 'MQIA_Q_DEPTH_LOW_EVENT',
+    'trigger_message_priority': 'MQIA_TRIGGER_MSG_PRIORITY',
+    'depth_current': 'MQIA_CURRENT_Q_DEPTH',
+    'depth_max_event': 'MQIA_Q_DEPTH_MAX_EVENT',
+    'open_input_count': 'MQIA_OPEN_INPUT_COUNT',
+    'persistence': 'MQIA_DEF_PERSISTENCE',
+    'trigger_depth': 'MQIA_TRIGGER_DEPTH',
+    'max_message_length': 'MQIA_MAX_MSG_LENGTH',
+    'depth_high_limit': 'MQIA_Q_DEPTH_HIGH_LIMIT',
+    'priority': 'MQIA_DEF_PRIORITY',
+    'input_open_option': 'MQIA_DEF_INPUT_OPEN_OPTION',
+    'message_delivery_sequence': 'MQIA_MSG_DELIVERY_SEQUENCE',
+    'retention_interval': 'MQIA_RETENTION_INTERVAL',
+    'open_output_count': 'MQIA_OPEN_OUTPUT_COUNT',
+    'trigger_type': 'MQIA_TRIGGER_TYPE',
 }
 
 QUEUE_TAGS = {
@@ -39,15 +39,15 @@ QUEUE_TAGS = {
 
 QUEUE_MANAGER_METRICS = {
     'dist_lists': 'MQIA_DIST_LISTS',
-	'max_msg_list': 'MQIA_MAX_MSG_LENGTH',
+    'max_msg_list': 'MQIA_MAX_MSG_LENGTH',
 }
 
 QUEUE_MANAGER_TAGS = {
-	'QMgrIdentifier': 'MQCA_Q_MGR_IDENTIFIER',
-	'ProcessName': 'MQCA_PROCESS_NAME',
+    'QMgrIdentifier': 'MQCA_Q_MGR_IDENTIFIER',
+    'ProcessName': 'MQCA_PROCESS_NAME',
 }
 
 CREATION = {
     'CreationTime': 'MQCA_CREATION_TIME',
-	'CreationDate': 'MQCA_CREATION_DATE',
+    'CreationDate': 'MQCA_CREATION_DATE',
 }

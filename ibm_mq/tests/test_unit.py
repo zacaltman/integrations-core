@@ -4,7 +4,7 @@
 from datadog_checks.ibm_mq import IbmMqCheck
 
 
-def test_check(aggregator, instance):
+def test_check(aggregator, check, instance):
     check = IbmMqCheck('ibm_mq', {}, {})
     check.check(instance)
 
