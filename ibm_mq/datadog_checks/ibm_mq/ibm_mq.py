@@ -5,7 +5,6 @@
 from datadog_checks.checks import AgentCheck
 
 from six import iteritems
-from ast import literal_eval
 
 try:
     import pymqi
@@ -63,10 +62,9 @@ class IbmMqCheck(AgentCheck):
                 self.warning('Cannot connect to queue {}: {}'.format(queue_name, e))
 
     def queue_manager_stats(self, queue_manager, tags):
-        for mname, value in iteritems(metrics.QUEUE_MANAGER_METRICS):
+        for mname, pymqi_value in iteritems(metrics.QUEUE_MANAGER_METRICS):
             try:
-                arg = 'queue_manager.inquire(pymqi.CMQC.{})'.format(value)
-                m = literal_eval(arg)
+                m = queue_manager.inquire(pymqi_value)
 
                 mname = '{}.queue_manager.{}'.format(self.METRIC_PREFIX, mname)
                 self.gauge(mname, m, tags=tags)
@@ -75,14 +73,11 @@ class IbmMqCheck(AgentCheck):
                 self.log.info("Error getting queue manager stats: {}".format(e))
 
     def queue_stats(self, queue, tags):
-        for mname, value in iteritems(metrics.QUEUE_METRICS):
+        for mname, pymqi_value in iteritems(metrics.QUEUE_METRICS):
             try:
-                arg = 'queue.inquire(pymqi.CMQC.{})'.format(value)
-                m = literal_eval(arg)
+                m = queue.inquire(pymqi_value)
                 mname = '{}.queue.{}'.format(self.METRIC_PREFIX, mname)
                 self.gauge(mname, m, tags=tags)
                 self.log.info("{} {} tags={}".format(mname, m, tags))
             except pymqi.Error as e:
                 self.log.info("Error getting queue stats: {}".format(e))
-            except Exception as e:
-                self.log.info("Error! {} {} {}".format(mname, value, e))
